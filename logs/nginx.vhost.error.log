@@ -1,0 +1,1 @@
+2018/11/23 09:26:32 [error] 7#7: *3 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: nginx.edu, request: "GET /favicon.ico HTTP/1.1", host: "nginx.edu", referrer: "https://nginx.edu/"
