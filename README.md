@@ -254,15 +254,21 @@ nginx:stable
 
 ## HowTo create Self signed PEM files
 
-Execute following commandline:
+Certificate and key generation:
 
-```
-openssl genrsa -des3 -out myCA.key 2048
-openssl req -x509 -new -nodes -key myCA.key -sha256 -days 9999 -out myCA.pem
-echo "phrase" >> ssl.pass
+```sh
+openssl req -x509 -nodes -days 99999 -newkey rsa:2048 -keyout ssl/private/my-certificate.key -out ssl/certs/my-certificate.crt
 ```
 
-Complete it for your own domain.
+Public Certificate(s):
 
-For self-signed certifcate, it must map your domain to your /etc/hosts as 127.0.0.1.
+```sh
+sudo chmod 644 /etc/ssl/certs/*.crt
+```
+
+Private Key(s):
+
+```sh
+sudo chmod 640 /etc/ssl/private/*.key
+```
 

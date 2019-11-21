@@ -1,0 +1,13 @@
+version: '2'
+services:
+
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ../conf.d:/etc/nginx/conf.d
+      - ../html:/usr/share/nginx/html
+      - ../ssl:/etc/ssl
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
